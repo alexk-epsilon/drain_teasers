@@ -25,8 +25,10 @@ def dfs(solutions,current_solution,s,val)->list:
             solutions = dfs(solutions,solution_so_far,s[i:],num-val)
             #try *
             solution_so_far = solution + "*"
-            if num >0 :
+            if num >0 & val >0:
                 solutions = dfs(solutions,solution_so_far,s[i:],val/num)
+            elif val==0:
+                solution = dfs(solutions,solution_so_far,s[i:],0)
 
     return solutions
 
@@ -35,6 +37,6 @@ def arrange_ops(s,val):
     current_solution = ""
     return dfs(solutions,current_solution,s,val)
 
-s = "124" 
-val = 8
+s = "500" 
+val = 0
 print(arrange_ops(s,val))
