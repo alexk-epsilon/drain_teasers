@@ -2,10 +2,12 @@
 #resulting expression is equial to a value provided
 #Example
 #123 6 => [1*2*3, 1+2+3]
+#124 8 => [1*2*4, 12-4]
+#241 8 => [2*4*1]
 from pdb import set_trace as b
 
 def dfs(solutions,current_solution,s,val)->list:
-    print(f"dfs {solutions} {current_solution} {s} {val}")
+    #print(f"dfs {solutions} {current_solution} {s} {val}")
     L = len(s)
     for i in range(1,L+1):
         solution = current_solution
@@ -33,6 +35,6 @@ def arrange_ops(s,val):
     current_solution = ""
     return dfs(solutions,current_solution,s,val)
 
-s = "123" 
-val = 6
+s = "124" 
+val = 8
 print(arrange_ops(s,val))
